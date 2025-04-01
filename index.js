@@ -1,6 +1,7 @@
 const fs = require('fs');
 const axios = require('axios');
 const chalk = require('chalk').default;
+const jwt = require('jsonwebtoken');
 const banner = require('./config/banner');
 
 const checkIn_url = 'https://www.coresky.com/api/taskwall/meme/sign';
@@ -21,8 +22,27 @@ function getTokens() {
     }
 }
 
+// Fungsi untuk mengecek apakah token sudah expired
+const isTokenExpired = (token) => {
+    try {
+        const decoded = jwt.decode(token);
+        if (decoded && decoded.exp) {
+            const now = Math.floor(Date.now() / 1000);
+            return now >= decoded.exp;
+        }
+        return false;
+    } catch (error) {
+        return true; // Jika token tidak bisa didecode, anggap expired
+    }
+};
+
 // Fungsi untuk melakukan check-in per akun
 const dailyCheckIn = async (token, index) => {
+    if (isTokenExpired(token)) {
+        console.log(chalk.red(`❌ [Account ${index + 1}] Token expired! Please update your token.`));
+        return;
+    }
+    
     try {
         const headers = {
             Token: token,
