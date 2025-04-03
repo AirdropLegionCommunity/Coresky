@@ -18,7 +18,11 @@ git clone https://github.com/AirdropLegionCommunity/Coresky.git
 ```bash
 npm install
 ```
-3. Run the script
+3. Create screen
+```bash
+screen -S coresky
+```
+4. Run the script
 ```bash
 node index.js
 ```
