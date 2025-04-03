@@ -28,4 +28,6 @@ node index.js
 - Open borwser developer tools(F12/ctrl sfht i)
 - Refresh find and copy the token from the request headers
 You will need to replace `YOUR_TOKEN` with your actual Coresky token in the `token.txt`
+Tokens expire quickly so always check
 
+# Coresky
