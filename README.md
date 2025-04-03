@@ -12,7 +12,7 @@ Auto check-In coresky and repeat daily
 ## Installation
 1. clone this repository
 ```bash
-git clone https://github.com/0x-Disciple/Coresky.git
+git clone https://github.com/AirdropLegionCommunity/Coresky.git
 ```
 2. Install dependcies
 ```bash
@@ -30,4 +30,3 @@ node index.js
 You will need to replace `YOUR_TOKEN` with your actual Coresky token in the `token.txt`
 Tokens expire quickly so always check
 
-# Coresky
